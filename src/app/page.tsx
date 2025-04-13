@@ -23,15 +23,15 @@ export default function Home() {
            </p>
            
          </div>
- <div className='mt-20 hidden lg:block'>
+ <div className='mt-20 block lg:block'>
     <MeteorCard />
  </div>
 
- <div onClick={()=>(router.push("/register"))} className=" block lg:hidden cursor-pointer bg-[#1f1f1f] mx-auto content-center px-8 py-8 rounded-3xl md:w-3/4 h-2/7  md:h-3/7 lg:h-4/7 mt-4 border border-zinc-300">
+ {/* <div onClick={()=>(router.push("/register"))} className=" block lg:hidden cursor-pointer bg-[#1f1f1f] mx-auto content-center px-8 py-8 rounded-3xl md:w-3/4 h-2/7  md:h-3/7 lg:h-4/7 mt-4 border border-zinc-300">
          <button onClick={()=>(router.push("/register"))} className="bg-gradient-to-r cursor-pointer from-[#52ced6]/50 to-[#52ced6]/10   text-white font-semibold py-2 md:py-3 px-4 md:px-6 rounded-xl shadow-lg hover:shadow-[0_0_40px_10px_#52ced6]/30 hover:scale-105 transition-all duration-300 ease-in-out">
   Start for free
 </button>
-         </div>
+         </div> */}
         
        </div>
        <div className="-m-4 hidden md:block ml-auto bg-[url('/1e423e66-0f34-4daa-8700-c0b84d3577ce.webp')] bg-cover bg-no-repeat bg-center h-screen w-[54vw] shadow-[0_0_40px_10px_#52ced6]/30 backdrop-blur-md ">
