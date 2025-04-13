@@ -1,103 +1,44 @@
-import Image from "next/image";
+"use client"
+import { useRouter } from 'next/navigation';
+import {HomeName} from "@/components/HomeName"
+import {Textflip} from "@/components/Textflip"
+import { MeteorCard } from '@/components/MeteorCard';
+
 
 export default function Home() {
+  const router = useRouter()
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="h-screen overflow-hidden justify-center bg-[#090909] w-full flex flex-row p-4 pb-12">
+      <div className="w-[50vw] text-center">
+       
+ <HomeName />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+ <div className="flex flex-col justify-center items-center ">
+           <h1 className="w-max text-4xl md:text-5xl xl:text-6xl mb-4 text-[#938967] font-serif flex items-center gap-2 flex-col 2xl:flex-row">
+           Make Your ideas,
+             <Textflip />
+           </h1>
+           <p className="text-[#938967] text-xl sm:text-[16px] lg:text-xl w-[90vw] pr-3">
+             Privacy-first AI that helps you create in confidence.
+           </p>
+           
+         </div>
+ <div className='mt-20 hidden lg:block'>
+    <MeteorCard />
+ </div>
+
+ <div onClick={()=>(router.push("/register"))} className=" block lg:hidden cursor-pointer bg-[#1f1f1f] mx-auto content-center px-8 py-8 rounded-3xl md:w-3/4 h-2/7  md:h-3/7 lg:h-4/7 mt-4 border border-zinc-300">
+         <button onClick={()=>(router.push("/register"))} className="bg-gradient-to-r cursor-pointer from-[#52ced6]/50 to-[#52ced6]/10   text-white font-semibold py-2 md:py-3 px-4 md:px-6 rounded-xl shadow-lg hover:shadow-[0_0_40px_10px_#52ced6]/30 hover:scale-105 transition-all duration-300 ease-in-out">
+  Start for free
+</button>
+         </div>
+        
+       </div>
+       <div className="-m-4 hidden md:block ml-auto bg-[url('/1e423e66-0f34-4daa-8700-c0b84d3577ce.webp')] bg-cover bg-no-repeat bg-center h-screen w-[54vw] shadow-[0_0_40px_10px_#52ced6]/30 backdrop-blur-md ">
+       </div>
+
+      <div className="bg-[#52ced6]/30 absolute top-20 left-0 w-96 h-40 rotate-45 origin-top-left blur-3xl"></div>
+      <div className="bg-[#52ced6]/30 absolute top-20 right-16 w-80 h-20 -rotate-45 origin-top-right blur-3xl"></div>
+     </div>
   );
 }
