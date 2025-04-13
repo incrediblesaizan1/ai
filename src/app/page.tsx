@@ -21,7 +21,7 @@ export default function Home() {
            </p>
            
          </div>
- <div className='mt-20 block lg:block'>
+ <div className=' mt-12 md:mt-20 block lg:block'>
     <MeteorCard />
  </div>
 
