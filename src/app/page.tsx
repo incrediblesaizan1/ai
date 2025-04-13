@@ -6,7 +6,7 @@ import { MeteorCard } from '@/components/MeteorCard';
 
 
 export default function Home() {
-  const router = useRouter()
+  // const router = useRouter()
   return (
     <div className="h-screen overflow-hidden justify-center bg-[#090909] w-full flex flex-row p-4 pb-12">
       <div className="w-[50vw] text-center">
