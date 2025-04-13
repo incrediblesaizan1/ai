@@ -1,5 +1,5 @@
 "use client"
-import { useRouter } from 'next/navigation';
+// import { useRouter } from 'next/navigation';
 import {HomeName} from "@/components/HomeName"
 import {Textflip} from "@/components/Textflip"
 import { MeteorCard } from '@/components/MeteorCard';
