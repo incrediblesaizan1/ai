@@ -11,7 +11,7 @@ const page = () => {
       <Boxes />
              <div className="flex text-[#616161] justify-center items-center mb-4 text-4xl">
                <IoIosFlower className="text-6xl text-[#52ced6]" />
-               SK'ask
+               {`SK'ask`}
              </div>
              <SignUp />
            </div>

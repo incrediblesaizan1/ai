@@ -1,12 +1,12 @@
 "use client"
 import React, { useEffect } from 'react'
 import { useAuth } from '@clerk/nextjs'
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation';
 import { HashLoader } from 'react-spinners'
 
-const page = () => {
+const Page = () => {
 
-  const router = useRouter()
+   const router = useRouter()
 
   const {isSignedIn, isLoaded, userId} = useAuth()
 
@@ -35,4 +35,4 @@ const page = () => {
   )
 }
 
-export default page 
+export default Page 
