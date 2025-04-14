@@ -19,10 +19,10 @@ const NotFound = () => {
               {`You can get back on track do your work with ease with SK'ask.`}
               </p>
               <div className='mt-12 gap-4 flex items-center justify-center'>
-                <div onClick={()=>router.push("/")} className='cursor-pointer'>
+                <div onClick={()=>router.push("/")}>
                 <MovingBorderButton  title='Return to Home' bgColor='bg-slate-950' />
                 </div>
-                    <div className='cursor-pointer' onClick={()=>router.push("/dashboard")} >
+                    <div onClick={()=>router.push("/dashboard")} >
                 <MovingBorderButton title='View Dashboard' bgColor='bg-[#000000]' />
                     </div>
               </div>

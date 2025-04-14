@@ -12,7 +12,7 @@ export function MovingBorderButton({title, bgColor}: Props) {
     <div>
       <Button
         borderRadius="1.75rem"
-        className={`${bgColor} text-white border-slate-800`}
+        className={`${bgColor} text-white border-slate-800 cursor-pointer`}
       >
         {title}
       </Button>
