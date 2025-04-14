@@ -9,11 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@clerk/nextjs": "^6.14.3",
+    "@clerk/themes": "^2.2.31",
     "@radix-ui/react-slot": "^1.2.0",
     "@tsparticles/engine": "^3.8.1",
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.8.1",
     "class-variance-authority": "^0.7.1",
+    "clerk": "^0.8.3",
     "clsx": "^2.1.1",
     "framer-motion": "^12.6.5",
     "lucide-react": "^0.487.0",
