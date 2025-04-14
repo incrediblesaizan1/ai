@@ -11,7 +11,7 @@ const NotFound = () => {
 
       <div className="grow container flex flex-col justify-center items-center pt-12 pb-12">
         <h1 className="text-2xl font-semibold text-center sm:text-4xl">{`Hmmm, that page doesn't exist.`}</h1>
-        <p className="text-muted-foreground max-w-[55ch] text-center mt-4 mb-6 sm:text-lg">You can get back on track do your work with ease with SK'ask.</p>
+        <p className="text-muted-foreground max-w-[55ch] text-center mt-4 mb-6 sm:text-lg">You can get back on track do your work {`with ease with SK'ask.`}</p>
         <div className="flex gap-2">
         <button onClick={()=>(router.push("/"))} className="bg-gradient-to-r cursor-pointer from-[#52ced6]/50 to-[#52ced6]/10   text-white font-semibold py-2 md:py-3 px-4 md:px-6 rounded-xl shadow-lg hover:shadow-[0_0_40px_10px_#52ced6]/30 hover:scale-105 transition-all duration-300 ease-in-out">
         Return to Home
