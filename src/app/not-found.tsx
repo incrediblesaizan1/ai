@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { useRouter } from 'next/navigation';
 
-const notFound = () => {
+const NotFound = () => {
   const router = useRouter()
   return (
     <div className="min-h-[100vh] flex flex-col">
@@ -31,4 +31,4 @@ const notFound = () => {
   );
 };
 
-export default notFound;
+export default NotFound;
