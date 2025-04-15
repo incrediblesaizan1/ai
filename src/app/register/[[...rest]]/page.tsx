@@ -3,7 +3,7 @@ import { SignUp } from '@clerk/nextjs'
 import React from 'react'
 import { IoIosFlower } from 'react-icons/io'
 
-const page = () => {
+const Page = () => {
   return (
     <div>
       <div className="h-screen relative w-full overflow-hidden py-4 bg-slate-900 flex flex-col items-center rounded-lg">
@@ -19,4 +19,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
