@@ -2,11 +2,13 @@
 import {HomeName} from "@/components/HomeName"
 import {Textflip} from "@/components/Textflip"
 import { MeteorCard } from '@/components/MeteorCard';
+import { Navbar } from "@/components/Navbar";
 
 
 export default function Home() {
   return (
     <div className="h-screen overflow-hidden justify-center bg-[#090909] w-full flex flex-row p-4 pb-12">
+      <Navbar />
       <div className="md:w-[50vw] text-center">
        
  <HomeName />
