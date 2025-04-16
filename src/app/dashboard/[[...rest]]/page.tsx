@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Side } from "@/components/Side";
 import { IoIosFlower } from "react-icons/io";
 import { useUser } from "@clerk/nextjs";
+import { BackgroundLines } from "@/components/ui/background-lines";
 
 const Page = () => {
   const user = useUser().user;
@@ -32,6 +33,7 @@ const Page = () => {
 
   return (
     <div className="flex overflow-hidden w-full">
+      <BackgroundLines className="">
       <Side />
       <div className="absolute left-1/2 top-12 md:top-6 transform -translate-x-1/2 flex justify-center items-center min-w-fit">
         <div className="w-full mx-auto flex flex-col justify-center items-center py-4 md:py-8 lg:py-10 xl:p-14">
@@ -41,6 +43,7 @@ const Page = () => {
           </div>
         </div>
       </div>
+      </BackgroundLines>
     </div>
   );
 };
