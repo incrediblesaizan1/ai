@@ -39,7 +39,7 @@ export function Side() {
   return (
     <div
       className={cn(
-        "mr-auto flex  lg:w-[18vw] xl:w-[15vw] flex-1 flex-col overflow-hidden  md:flex-row bg-transparent",
+        "mr-auto flex z-50 lg:w-[18vw] xl:w-[15vw] flex-1 flex-col overflow-hidden  md:flex-row bg-transparent",
         "h-screen",
       )}
     >
