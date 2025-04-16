@@ -1,8 +1,11 @@
 import React from 'react'
+import { Side } from '@/components/Side'
 
 const Page = () => {
   return (
-    <div>dashboard</div>
+    <div>
+      <Side />
+    </div>
   )
 }
 
