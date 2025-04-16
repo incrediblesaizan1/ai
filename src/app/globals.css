@@ -42,3 +42,56 @@ body {
     }
   }
 }
+
+
+@layer components {
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 0px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #05b6d3;
+    width: 0px;
+    border-radius: 10px;
+  }
+
+  .custom-scrollbar-dark::-webkit-scrollbar-thumb {
+    background-color: #131314;
+  }
+}
+
+@layer components {
+  .custom-scrollbar2::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .custom-scrollbar2::-webkit-scrollbar-track {
+    background: transparent;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    margin-right: 2px;
+
+  }
+
+  .custom-scrollbar2::-webkit-scrollbar-thumb {
+    background-color: #05b6d3;
+    width: 5px;
+    border-radius: 10px;
+    cursor:grab;
+   
+
+  }
+
+  .custom-scrollbar2-dark::-webkit-scrollbar-thumb {
+    background-color: #131314;
+    cursor: pointer;
+    
+
+
+
+  }
+}
