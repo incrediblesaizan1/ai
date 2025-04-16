@@ -1,12 +1,11 @@
-"use client"
-import React, { useEffect, useState } from 'react'
-import { Side } from '@/components/Side'
-import { IoIosFlower } from 'react-icons/io';
-import { useUser } from '@clerk/nextjs';
+"use client";
+import React, { useEffect, useState } from "react";
+import { Side } from "@/components/Side";
+import { IoIosFlower } from "react-icons/io";
+import { useUser } from "@clerk/nextjs";
 
 const Page = () => {
-
-  const user = useUser().user
+  const user = useUser().user;
 
   const [greet, setGreet] = useState("");
 
@@ -32,18 +31,18 @@ const Page = () => {
   }, []);
 
   return (
-    <div className='flex overflow-hidden w-full'>
+    <div className="flex overflow-hidden w-full">
       <Side />
-      <div className='absolute left-20 top-6 flex justify-center w-fit'>
-      <div className="w-full mx-auto flex flex-col justify-center items-center py-4 md:py-8 lg:py-10 xl:p-14">
-            <div className="flex items-center text-2xl md:text-3xl lg:text-5xl capitalize">
-              <IoIosFlower className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-[#52ced6]" />{" "}
-              {greet}, {user && user.firstName}
-            </div>
+      <div className="absolute left-1/2 top-12 md:top-6 transform -translate-x-1/2 flex justify-center items-center w-fit">
+        <div className="w-full mx-auto flex flex-col justify-center items-center py-4 md:py-8 lg:py-10 xl:p-14">
+          <div className="flex items-center text-2xl md:text-3xl lg:text-5xl capitalize">
+            <IoIosFlower className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-[#52ced6]" />{" "}
+            {greet}, {user && user.firstName}
           </div>
+        </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Page
+export default Page;
