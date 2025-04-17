@@ -6,12 +6,14 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dracula } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { FiClipboard, FiCheck } from "react-icons/fi"; 
 
+interface Props{
+    promptResponse: string
+}
 
-
-const AppendResponse = ({ promptResponse }) => {
+const AppendResponse = ({ promptResponse }: Props) => {
   const [copiedCode, setCopiedCode] = useState(null); 
 
-  const handleCopy = (code, index) => {
+  const handleCopy = (code: string, index: any) => {
     navigator.clipboard.writeText(code);
     setCopiedCode(index); 
     setTimeout(() => setCopiedCode(null), 2000); 
@@ -24,11 +26,11 @@ const AppendResponse = ({ promptResponse }) => {
           rehypePlugins={[rehypeRaw]}
           remarkPlugins={[remarkGfm]}
           components={{
-            code({  inline, className, children, ...props }) {
+            code({  className, children, ...props }) {
               const match = /language-(\w+)/.exec(className || "");
               const codeText = String(children).replace(/\n$/, "");
 
-              return !inline && match ? (
+              return match ? (
                 <div className="relative group">
                   <button
                     onClick={() => handleCopy(codeText, codeText)}
