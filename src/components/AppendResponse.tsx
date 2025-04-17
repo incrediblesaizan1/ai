@@ -13,9 +13,8 @@ interface Props{
 const AppendResponse = ({ promptResponse }: Props) => {
   const [copiedCode, setCopiedCode] = useState(null); 
 
-  const handleCopy = (code: string, index: any) => {
+  const handleCopy = (code: string) => {
     navigator.clipboard.writeText(code);
-    setCopiedCode(index); 
     setTimeout(() => setCopiedCode(null), 2000); 
   };
 
@@ -30,10 +29,10 @@ const AppendResponse = ({ promptResponse }: Props) => {
               const match = /language-(\w+)/.exec(className || "");
               const codeText = String(children).replace(/\n$/, "");
 
-              return match ? (
+              return  match ? (
                 <div className="relative group">
                   <button
-                    onClick={() => handleCopy(codeText, codeText)}
+                    onClick={() => handleCopy(codeText)}
                     className="absolute cursor-pointer top-2 right-2 bg-gray-700 text-white p-1 rounded opacity-0 group-hover:opacity-100 transition"
                   >
                     {copiedCode === codeText ? <FiCheck /> : <FiClipboard />}

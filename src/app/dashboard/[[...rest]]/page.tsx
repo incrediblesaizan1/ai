@@ -149,11 +149,12 @@ const Page = () => {
                   onClick={() => (send(), setInputDown(true), setMessage(""))}
                 >
                   <Image
-                    ref={submitRef}
-                    src="/arrow.svg"
-                    alt=""
-                    className="absolute right-3 bg-[#a3512b] p-2 rounded-xl cursor-pointer top-2"
-                  />
+  src="/arrow.svg"
+  alt="Arrow"
+  width={28}
+  height={28}
+  className="absolute right-3 bg-[#a3512b] p-2 rounded-xl cursor-pointer top-2"
+/>
                 </button>
               )}
               <textarea
