@@ -25,7 +25,6 @@ const Page = () => {
   const [loading, setLoading] = useState(false);
   const [questions, setQuestions] = useState<SS[]>([]);
 
-  const submitRef = useRef(null);
   const messageBox = useRef(null);
 
   const greetfunc = () => {
