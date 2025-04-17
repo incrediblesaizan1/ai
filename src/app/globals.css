@@ -95,3 +95,69 @@ body {
 
   }
 }
+
+
+@layer components {
+  .custom-scrollbar3::-webkit-scrollbar {
+    width: 1px;
+    height: 5px;
+
+  }
+
+  .custom-scrollbar3::-webkit-scrollbar-track {
+    background: transparent;
+
+  }
+
+  .custom-scrollbar3::-webkit-scrollbar-thumb {
+    background-color: #05b6d3;
+    width: 1px;
+    border-radius: 10px;
+    height: 5px;
+    cursor:grab;
+  }
+
+  .custom-scrollbar3-dark::-webkit-scrollbar-thumb {
+    background-color: #131314;
+    cursor: pointer;
+  }
+}
+
+
+
+.markdown-body {
+  font-family: monospace;
+  color: #c9d1d9;
+  padding: 20px;
+  line-height: 1.5;
+  width: 75vw;
+}
+.markdown-body pre {
+  background: #060f20;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.markdown-body code {
+  padding: 2px 5px;
+  border-radius: 3px;
+  color: #4fb10d;
+  background-color: #343942;
+  margin: 5px 0 ;
+}
+
+.markdown-body p {
+  font-size: 17px; 
+  line-height: 30px;
+}
+
+.markdown-body div{
+  font-size: 15px;
+  line-height: 30px;
+}
+
+.markdown-body{
+  font-size: 15px;
+  line-height: 30px;
+
+}
