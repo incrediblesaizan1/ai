@@ -8,7 +8,11 @@ import { Navbar } from "@/components/Navbar";
 export default function Home() {
   return (
     <div className="h-screen overflow-hidden justify-center bg-[#090909] w-full flex flex-row p-4 pb-12">
+
+<div className="hidden md:block">
       <Navbar />
+</div>
+
       <div className="md:w-[50vw] text-center">
        
  <HomeName />

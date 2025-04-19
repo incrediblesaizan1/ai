@@ -58,6 +58,12 @@ const Page = () => {
     }
   };
 
+  const newChatClick = () =>{
+    setQuestions([])
+    setMessage("")
+    setInputDown(false)
+  }
+
   const fetchQuestions = async () => {
     const a = await axios.get("/api/questions");
     setResetQuestion(a.data.questions);
@@ -105,7 +111,7 @@ const Page = () => {
 
       <div className="relative z-10 w-[100vw] flex">
         <div className="absolute z-100">
-          <Side />
+        <Side newChatClick={newChatClick} />
         </div>
 
         <div className="flex w-[98vw] md:w-full items-center pt-10 flex-col overflow-y-auto custom-scrollbar2 overflow-x-hidden">

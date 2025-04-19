@@ -9,6 +9,7 @@ interface Links {
   label: string;
   href: string;
   icon: React.JSX.Element | React.ReactNode;
+  onclick?: (event: React.MouseEvent<HTMLElement>) => void; // ✅ More general
 }
 
 interface SidebarContextProps {
@@ -164,17 +165,18 @@ export const SidebarLink = ({
   className?: string;
 }) => {
   const { open, animate } = useSidebar();
+
   return (
     <Link
       href={link.href}
       className={cn(
-        "flex items-center justify-start gap-2  group/sidebar py-2",
+        "flex items-center justify-start gap-2 group/sidebar py-2",
         className
       )}
+      onClick={link.onclick} // ✅ this will work only if `onclick` exists
       {...props}
     >
       {link.icon}
-
       <motion.span
         animate={{
           display: animate ? (open ? "inline-block" : "none") : "inline-block",
@@ -187,3 +189,4 @@ export const SidebarLink = ({
     </Link>
   );
 };
+

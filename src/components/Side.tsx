@@ -11,7 +11,11 @@ import Link from "next/link";
 import { IoIosFlower } from "react-icons/io";
 import { UserButton, useUser } from "@clerk/nextjs";
 
-export function Side() {
+interface Props {
+  newChatClick: (event: React.MouseEvent<HTMLElement>) => void;
+}
+
+export function Side({newChatClick}:Props) {
 
     const user = useUser().user
 
@@ -23,6 +27,7 @@ export function Side() {
         icon: (
           <LuMessageSquareDiff className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
         ),
+        onclick: newChatClick
       },
     {
       label: "Chats",
