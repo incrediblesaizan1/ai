@@ -10,25 +10,37 @@ interface Question {
   response: string;
 }
 
+type questions = {
+  text: string;
+  type: "incoming" | "outgoing";
+};
+
 export const HoverEffect = ({
   items,
   className,
-  setSelectedQue
+  setSelectedQue,
+  setQuestions,
+  setInputDown
 }: {
   items: {
-  question: string;
-  date: string;
-  response: string;
-  _id:string;
+    question: string;
+    date: string;
+    response: string;
+    _id: string;
   }[];
   className?: string;
-setSelectedQue:React.Dispatch<React.SetStateAction<Question[]>>
+  setSelectedQue: React.Dispatch<React.SetStateAction<Question[]>>;
+  setQuestions: React.Dispatch<React.SetStateAction<questions[]>>;
+  setInputDown: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
-  const handleSelect = (item: Question) =>{
-    setSelectedQue([item])
-  }
+  const handleSelect = (item: Question) => {
+    setSelectedQue([item]);
+    setInputDown(true)
+    setQuestions([{text: item.question, type: "outgoing"}])
+    setQuestions((prev)=>[...prev, {text: item.response, type: "incoming"}])
+  };
 
   return (
     <div
@@ -63,16 +75,17 @@ setSelectedQue:React.Dispatch<React.SetStateAction<Question[]>>
             )}
           </AnimatePresence>
           <Card>
-
             {item.question.length > 32 ? (
-              <CardTitle>{item.question.slice(0,32)}...</CardTitle>
-            ): (
+              <CardTitle>{item.question.slice(0, 32)}...</CardTitle>
+            ) : (
               <CardTitle>{item.question}</CardTitle>
             )}
 
             {item.response.length > 65 ? (
-              <CardDescription>{item.response.slice(0,65)} .....</CardDescription>
-            ): (
+              <CardDescription>
+                {item.response.slice(0, 65)} .....
+              </CardDescription>
+            ) : (
               <CardDescription>{item.response}</CardDescription>
             )}
           </Card>

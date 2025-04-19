@@ -86,7 +86,7 @@ const Page = () => {
     setLoading(false);
   }, []);
 
-  console.log(selectedQue)
+  // console.log(selectedQue[0]._id)
 
   if (loading) return <StepLoader loading={loading} />;
 
@@ -133,7 +133,7 @@ const Page = () => {
                     className={cn(
                       "w-fit max-w-[100vw] md:max-w-[70vw] mb-6 lg:max-w-[52vw] p-2 mt-3 rounded-md mx-auto md:mx-0",
                       msg.type === "outgoing"
-                        ? "bg-[#060b25] self-start font-sans text-xl md:text-md"
+                        ? "bg-[#060b25] self-start font-serif "
                         : "bg-[#27272a] self-start"
                     )}
                   >
@@ -170,7 +170,7 @@ const Page = () => {
               value={message}
               placeholder="Ask anything"
               onChange={(e) => setMessage(e.target.value)}
-              className=" font-sans textinp bg-transparent resize-none text-justify rounded-xl p-2 w-[50vw] md:w-[60vw] lg:w-[50vw] outline-none custom-scrollbar2 min-h-20 md:min-h-28 max-h-96 overflow-y-auto "
+              className=" font-serif textinp bg-transparent resize-none text-justify rounded-xl p-2 w-[50vw] md:w-[60vw] lg:w-[50vw] outline-none custom-scrollbar2 min-h-20 md:min-h-28 max-h-96 overflow-y-auto "
               ref={(el) => {
                 if (el) {
                   el.style.height = "auto";
@@ -208,6 +208,8 @@ const Page = () => {
                 <QuestionCard
                   setSelectedQue={setSelectedQue}
                   recentQuestion={[...recentQuestion].reverse().slice(0, 6)}
+                  setQuestions={setQuestions}
+                  setInputDown={setInputDown}
                 />
               </div>
             )}
