@@ -10,11 +10,19 @@ import axios from "axios";
 import AppendResponse from "@/components/AppendResponse";
 import { StepLoader } from "@/components/StepLoader";
 import Image from "next/image";
+import QuestionCard from "@/components/QuestionCard";
 
-type SS = {
+type questions = {
   text: string;
   type: "incoming" | "outgoing";
 };
+
+interface recentQuestion {
+  _id: string;
+  question: string;
+  date: string;
+  response: string;
+}
 
 const Page = () => {
   const user = useUser().user;
@@ -23,7 +31,9 @@ const Page = () => {
   const [message, setMessage] = useState("");
   const [inputDown, setInputDown] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [questions, setQuestions] = useState<SS[]>([]);
+  const [questions, setQuestions] = useState<questions[]>([]);
+  const [recentQuestion, setResetQuestion] = useState<recentQuestion[]>([]);
+  const [selectedQue, setSelectedQue] = useState<recentQuestion[]>([])
 
   const messageBox = useRef(null);
 
@@ -46,11 +56,11 @@ const Page = () => {
 
   const fetchQuestions = async () => {
     const a = await axios.get("/api/questions");
-    console.log(a);
+    setResetQuestion(a.data.questions);
   };
 
   const send = async () => {
-    setLoading(true)
+    setLoading(true);
     setInputDown(true);
     setQuestions((prev) => [...prev, { text: message, type: "outgoing" }]);
 
@@ -58,23 +68,22 @@ const Page = () => {
 
     setQuestions((prev) => [...prev, { text: response, type: "incoming" }]);
 
-    setLoading(false)
-    console.log("delivered")
+    setLoading(false);
     await axios.post("/api/questions", {
       question: message,
       answer: response,
     });
-    console.log("data added")
   };
 
   useEffect(() => {
-    setLoading(true)
+    setLoading(true);
     greetfunc();
     fetchQuestions();
-    setLoading(false)
+    setLoading(false);
   }, []);
 
-  if(loading) return <StepLoader loading={loading} />
+  if (loading) return <StepLoader loading={loading} />;
+  console.log(selectedQue)
 
   return (
     <div className="relative flex h-screen w-full bg-black">
@@ -89,37 +98,36 @@ const Page = () => {
 
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] bg-black" />
 
-      <div className="relative z-10 w-full">
-        <div>
+      <div className="relative z-10 w-[100vw] flex">
+        <div className="absolute">
           <Side />
         </div>
 
-        <div className="flex items-center justify-center ">
-          <div className="absolute top-12 md:top-6 min-w-fit">
+        <div className="flex w-[100vw] items-center pt-10 flex-col overflow-y-auto ">
+
+          <div>
             {!inputDown && (
-              <div className="">
-                <div className="w-full mx-auto flex justify-center items-center py-4 md:py-8 lg:py-10 xl:p-14">
-                  <div className="flex w-full justify-center items-center text-2xl md:text-3xl lg:text-5xl capitalize whitespace-nowrap px-4">
-                    <IoIosFlower className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-[#52ced6]" />{" "}
-                    {greet}, {user && user.firstName}
-                  </div>
-                </div>
+              <div className=" flex items-center text-2xl md:text-3xl lg:text-5xl capitalize ">
+                <IoIosFlower className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-[#52ced6]" />{" "}
+                {greet}, {user && user.firstName}
               </div>
             )}
+          </div>
 
+          {inputDown && (
             <div
               ref={messageBox}
               className={`
-    "absolute w-full h-[65vh] mx-auto",
-    inputDown ? "block" : "hidden"
-  `}
+                            "  h-[65vh] mx-auto mb-14",
+                            !inputDown && "hidden"
+                          `}
             >
-              <div className="flex flex-col gap-2 p-2 overflow-y-auto custom-scrollbar2 h-[83vh]">
+              <div className=" p-2 pb-40 overflow-y-auto custom-scrollbar2 h-[93vh]">
                 {questions.map((msg, index) => (
                   <div
                     key={index}
                     className={cn(
-                      "w-fit max-w-[90vw] md:max-w-[70vw] lg:max-w-[52vw] p-2 mt-3 rounded-md",
+                      "w-fit max-w-[90vw] md:max-w-[70vw] mb-6 lg:max-w-[52vw] p-2 mt-3 rounded-md",
                       msg.type === "outgoing"
                         ? "bg-[#060b25] self-start"
                         : "bg-[#27272a] self-start"
@@ -132,54 +140,59 @@ const Page = () => {
                     )}
                   </div>
                 ))}
-               
               </div>
             </div>
+          )}
 
-            <div
-              className={` mt-12 z-50 bg-[#27272a] flex items-center justify-center fixed  ${
-                inputDown
-                  ? "-bottom-3"
-                  : "top-20 md:top-30 lg:top-40"
-              }  rounded-2xl  pr-12 p-1`}
-            >
-              {message.trim() !== "" && (
-                <button
-                  onClick={() => (send(), setInputDown(true), setMessage(""))}
-                >
-                  <Image
-  src="/arrow.svg"
-  alt="Arrow"
-  width={28}
-  height={28}
-  className="absolute right-3 bg-[#a3512b] p-2 rounded-xl cursor-pointer top-2"
-/>
-                </button>
-              )}
-              <textarea
-                value={message}
-                placeholder="Ask anything"
-                onChange={(e) => setMessage(e.target.value)}
-                className=" textinp bg-transparent resize-none text-justify rounded-xl p-2 w-[70vw] lg:w-[50vw] outline-none custom-scrollbar2 min-h-20 md:min-h-28 max-h-96 overflow-y-auto"
-                ref={(el) => {
-                  if (el) {
-                    el.style.height = "auto";
-                    el.style.height = `${Math.max(
-                      112,
-                      Math.min(el.scrollHeight, 384)
-                    )}px`;
-                  }
-                }}
-                onInput={(e) => {
-                  e.currentTarget.style.height = "auto";
-                  e.currentTarget.style.height = `${Math.max(
+          <div
+            className={` mt-10  z-50 bg-[#27272a] ${
+              inputDown ? "fixed -bottom-3" : ""
+            }  rounded-2xl  pr-12 p-1 relative`}
+          >
+            {message.trim() !== "" && (
+              <button
+                onClick={() => (send(), setInputDown(true), setMessage(""))}
+              >
+                <Image
+                  src="/arrow.svg"
+                  alt="Arrow"
+                  width={28}
+                  height={28}
+                  className=" bg-[#a3512b] p-2 rounded-xl cursor-pointer absolute top-3 right-3"
+                />
+              </button>
+            )}
+            <textarea
+              value={message}
+              placeholder="Ask anything"
+              onChange={(e) => setMessage(e.target.value)}
+              className=" textinp bg-transparent resize-none text-justify rounded-xl p-2 w-[50vw] md:w-[60vw] lg:w-[50vw] outline-none custom-scrollbar2 min-h-20 md:min-h-28 max-h-96 overflow-y-auto "
+              ref={(el) => {
+                if (el) {
+                  el.style.height = "auto";
+                  el.style.height = `${Math.max(
                     112,
-                    Math.min(e.currentTarget.scrollHeight, 384)
+                    Math.min(el.scrollHeight, 384)
                   )}px`;
-                }}
-              ></textarea>
-            </div>
+                }
+              }}
+              onInput={(e) => {
+                e.currentTarget.style.height = "auto";
+                e.currentTarget.style.height = `${Math.max(
+                  112,
+                  Math.min(e.currentTarget.scrollHeight, 384)
+                )}px`;
+              }}
+            ></textarea>
           </div>
+
+              <div className="">
+          {!inputDown && <div className="">  
+                            <QuestionCard setSelectedQue={setSelectedQue} recentQuestion={[...recentQuestion].reverse().slice(0,6)} />
+                        </div>}
+              </div>
+
+
         </div>
       </div>
     </div>
