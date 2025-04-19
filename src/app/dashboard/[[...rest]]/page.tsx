@@ -11,6 +11,9 @@ import AppendResponse from "@/components/AppendResponse";
 import { StepLoader } from "@/components/StepLoader";
 import Image from "next/image";
 import QuestionCard from "@/components/QuestionCard";
+import { GoArrowRight } from "react-icons/go";
+import { IoChatbubblesOutline } from "react-icons/io5";
+import { useRouter } from "next/navigation";
 
 type questions = {
   text: string;
@@ -26,6 +29,7 @@ interface recentQuestion {
 
 const Page = () => {
   const user = useUser().user;
+  const router = useRouter()
 
   const [greet, setGreet] = useState("");
   const [message, setMessage] = useState("");
@@ -33,7 +37,7 @@ const Page = () => {
   const [loading, setLoading] = useState(false);
   const [questions, setQuestions] = useState<questions[]>([]);
   const [recentQuestion, setResetQuestion] = useState<recentQuestion[]>([]);
-  const [selectedQue, setSelectedQue] = useState<recentQuestion[]>([])
+  const [selectedQue, setSelectedQue] = useState<recentQuestion[]>([]);
 
   const messageBox = useRef(null);
 
@@ -83,7 +87,6 @@ const Page = () => {
   }, []);
 
   if (loading) return <StepLoader loading={loading} />;
-  console.log(selectedQue)
 
   return (
     <div className="relative flex h-screen w-full bg-black">
@@ -103,8 +106,7 @@ const Page = () => {
           <Side />
         </div>
 
-        <div className="flex w-[100vw] items-center pt-10 flex-col overflow-y-auto ">
-
+        <div className="flex w-[98vw] md:w-full items-center pt-10 flex-col overflow-y-auto custom-scrollbar2 overflow-x-hidden">
           <div>
             {!inputDown && (
               <div className=" flex items-center text-2xl md:text-3xl lg:text-5xl capitalize ">
@@ -122,12 +124,12 @@ const Page = () => {
                             !inputDown && "hidden"
                           `}
             >
-              <div className=" p-2 pb-40 overflow-y-auto custom-scrollbar2 h-[93vh]">
+              <div className=" p-2 pb-40 overflow-y-auto custom-scrollbar2 h-[93vh] w-[99vw] md:w-full">
                 {questions.map((msg, index) => (
                   <div
                     key={index}
                     className={cn(
-                      "w-fit max-w-[90vw] md:max-w-[70vw] mb-6 lg:max-w-[52vw] p-2 mt-3 rounded-md",
+                      "w-fit max-w-[100vw] md:max-w-[70vw] mb-6 lg:max-w-[52vw] p-2 mt-3 rounded-md mx-auto md:mx-0",
                       msg.type === "outgoing"
                         ? "bg-[#060b25] self-start"
                         : "bg-[#27272a] self-start"
@@ -145,7 +147,7 @@ const Page = () => {
           )}
 
           <div
-            className={` mt-10  z-50 bg-[#27272a] ${
+            className={` mt-10  z-50 bg-[#2f2f41] ${
               inputDown ? "fixed -bottom-3" : ""
             }  rounded-2xl  pr-12 p-1 relative`}
           >
@@ -186,13 +188,28 @@ const Page = () => {
             ></textarea>
           </div>
 
+          <div className="">
+            {!inputDown && (
               <div className="">
-          {!inputDown && <div className="">  
-                            <QuestionCard setSelectedQue={setSelectedQue} recentQuestion={[...recentQuestion].reverse().slice(0,6)} />
-                        </div>}
+
+                <div className="flex justify-between px-4 mt-8 -mb-6 ">
+                <div className="flex items-center gap-1 ">
+                <IoChatbubblesOutline className="text-lg" />
+              <h1>Your Recent chats</h1>
+                </div>
+                <div className="flex items-center gap-1 cursor-pointer hover:underline" onClick={()=>router.push("/chats")} >
+              <h3>View all</h3>
+              <GoArrowRight className="text-md" />
+                </div>
               </div>
 
-
+                <QuestionCard
+                  setSelectedQue={setSelectedQue}
+                  recentQuestion={[...recentQuestion].reverse().slice(0, 6)}
+                />
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>

@@ -3,7 +3,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 export const generateResponse = async (prompt: string) => {
   try {
     const genAI = new GoogleGenerativeAI(
-      process.env.GEMINI_KEY!
+      "AIzaSyAsRKRvBhE4em-MqsrHHyxVrQ1xe3D-toQ"
     );
     const model = genAI.getGenerativeModel({
       model: "gemini-2.0-pro",
@@ -54,7 +54,7 @@ app.listen(3000, () => {
     const result = await model.generateContent(prompt);
     return result.response.text();
   } catch (error) {
-    console.log(error)
+    console.log(error);
     const genAI = new GoogleGenerativeAI(
       "AIzaSyCFW2gLvH6qRdT6AGoUc_LVxinCtWOaS-U"
     );
