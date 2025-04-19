@@ -86,7 +86,7 @@ const Page = () => {
     setLoading(false);
   }, []);
 
-  // console.log(selectedQue[0]._id)
+  console.log(selectedQue)
 
   if (loading) return <StepLoader loading={loading} />;
 
