@@ -99,7 +99,7 @@ const Page = () => {
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] bg-black" />
 
       <div className="relative z-10 w-[100vw] flex">
-        <div className="absolute">
+        <div className="absolute z-100">
           <Side />
         </div>
 
