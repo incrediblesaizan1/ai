@@ -94,7 +94,6 @@ const Page = () => {
 
   console.log(selectedQue)  
 
-  if (loading) return <StepLoader loading={loading} />;
 
   return (
     <div className="relative flex h-screen w-full bg-black">
@@ -109,7 +108,7 @@ const Page = () => {
 
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] bg-black" />
 
-      <div className="relative z-10 w-[100vw] flex">
+    { loading? <StepLoader loading={loading} /> : (<div className="relative z-10 w-[100vw] flex">
         <div className="absolute z-100">
         <Side newChatClick={newChatClick} />
         </div>
@@ -221,7 +220,8 @@ const Page = () => {
             )}
           </div>
         </div>
-      </div>
+      </div>)}
+
     </div>
   );
 };
