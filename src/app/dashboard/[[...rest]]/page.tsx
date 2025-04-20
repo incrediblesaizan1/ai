@@ -90,7 +90,7 @@ const Page = () => {
     greetfunc();
     fetchQuestions();
     setLoading(false);
-  }, [setQuestions]);
+  }, [questions, message, inputDown]);
 
   console.log(selectedQue)  
 
