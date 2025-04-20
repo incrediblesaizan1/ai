@@ -161,3 +161,42 @@ body {
   line-height: 30px;
 
 }
+
+@media only screen and (max-width: 600px) {
+  .markdown-body {
+    font-family: monospace;
+    color: #c9d1d9;
+    padding: 20px;
+    line-height: 1.5;
+    width: 75vw;
+  }
+  .markdown-body pre {
+    background: #060f20;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  .markdown-body code {
+    padding: 2px 5px;
+    border-radius: 3px;
+    color: #4fb10d;
+    background-color: #343942;
+    margin: 5px 0 ;
+  }
+  
+  .markdown-body p {
+    font-size: 12px; 
+    line-height: 20px;
+  }
+  
+  .markdown-body div{
+    font-size: 10px;
+    line-height: 20px;
+  }
+  
+  .markdown-body{
+    font-size: 10px;
+    line-height: 20px;
+  
+  }
+}
