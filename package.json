@@ -11,7 +11,10 @@
   "dependencies": {
     "@clerk/nextjs": "^6.14.3",
     "@clerk/themes": "^2.2.31",
+    "@coreui/coreui": "^5.2.0",
+    "@coreui/react": "^5.5.0",
     "@google/generative-ai": "^0.24.0",
+    "@radix-ui/react-collapsible": "^1.1.7",
     "@radix-ui/react-slot": "^1.2.0",
     "@tabler/icons-react": "^3.31.0",
     "@tsparticles/engine": "^3.8.1",
