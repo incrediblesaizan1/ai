@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Sidebar, SidebarBody, SidebarLink } from "./ui/sidebar";
-import { LuChevronsUpDown, LuMessageSquareDiff } from "react-icons/lu";
+import { LuMessageSquareDiff } from "react-icons/lu";
 import { IconBrandTabler } from "@tabler/icons-react";
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
