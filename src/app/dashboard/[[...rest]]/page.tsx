@@ -83,6 +83,7 @@ const Page = () => {
       question: message,
       answer: response,
     });
+    await fetchQuestions()
   };
 
   useEffect(() => {
@@ -90,7 +91,7 @@ const Page = () => {
     greetfunc();
     fetchQuestions();
     setLoading(false);
-  }, [questions, message, inputDown]);
+  }, []);
 
   console.log(selectedQue)  
 
