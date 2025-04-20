@@ -39,7 +39,7 @@ const Page = () => {
   const [recentQuestion, setResetQuestion] = useState<recentQuestion[]>([]);
   const [selectedQue, setSelectedQue] = useState<recentQuestion[]>([]);
 
-  const messageBox = useRef(null);
+  const messageBox = useRef<HTMLDivElement>(null);
 
   const greetfunc = () => {
     const now = new Date();
@@ -69,12 +69,14 @@ const Page = () => {
     setResetQuestion(a.data.questions);
   };
 
-  function scrollToBottomOfElement(element) {
-    element.scrollTo({
-      top: element.scrollHeight,
-      behavior: 'smooth'
-    });
-  }
+  const scrollToBottom = () => {
+    if (messageBox.current) {
+      messageBox.current.scrollTo({
+        top: messageBox.current.scrollHeight,
+        behavior: "smooth",
+      });
+    }
+  };
 
   const send = async () => {
     setLoading(true);
@@ -91,7 +93,7 @@ const Page = () => {
       question: message,
       answer: response,
     });
-    await fetchQuestions()
+    await scrollToBottom()
   };
 
   useEffect(() => {
@@ -134,13 +136,13 @@ const Page = () => {
 
           {inputDown && (
             <div
-              ref={messageBox}
+              
               className={`
                             "  h-[65vh] mx-auto mb-14",
                             !inputDown && "hidden"
                           `}
             >
-              <div className=" p-2 pb-40 overflow-y-auto custom-scrollbar2 h-[93vh] w-[99vw] md:w-full">
+              <div className=" p-2 pb-40 overflow-y-auto custom-scrollbar2 h-[93vh] w-[99vw] md:w-full" ref={messageBox}>
                 {questions.map((msg, index) => (
                   <div
                     key={index}
