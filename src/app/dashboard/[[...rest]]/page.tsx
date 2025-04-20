@@ -69,9 +69,9 @@ const Page = () => {
     setResetQuestion(a.data.questions);
   };
 
-  function scrollToBottom() {
-    window.scrollTo({
-      top: document.body.scrollHeight,
+  function scrollToBottomOfElement(element) {
+    element.scrollTo({
+      top: element.scrollHeight,
       behavior: 'smooth'
     });
   }
