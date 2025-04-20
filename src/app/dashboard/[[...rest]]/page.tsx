@@ -90,9 +90,9 @@ const Page = () => {
     greetfunc();
     fetchQuestions();
     setLoading(false);
-  }, []);
+  }, [setQuestions]);
 
-  console.log(selectedQue)
+  console.log(selectedQue)  
 
   if (loading) return <StepLoader loading={loading} />;
 
