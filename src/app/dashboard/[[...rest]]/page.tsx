@@ -69,6 +69,13 @@ const Page = () => {
     setResetQuestion(a.data.questions);
   };
 
+  function scrollToBottom() {
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: 'smooth'
+    });
+  }
+
   const send = async () => {
     setLoading(true);
     setInputDown(true);
@@ -79,6 +86,7 @@ const Page = () => {
     setQuestions((prev) => [...prev, { text: response, type: "incoming" }]);
 
     setLoading(false);
+    scrollToBottom()
     await axios.post("/api/questions", {
       question: message,
       answer: response,
