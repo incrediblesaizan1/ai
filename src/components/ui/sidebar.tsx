@@ -9,7 +9,7 @@ interface Links {
   label: string;
   href: string;
   icon: React.JSX.Element | React.ReactNode;
-  onclick?: (event: React.MouseEvent<HTMLElement>) => void; // ✅ More general
+  onclick?: (event: React.MouseEvent<HTMLElement>) => void; 
 }
 
 interface SidebarContextProps {
@@ -90,7 +90,7 @@ export const DesktopSidebar = ({
     <>
       <motion.div
         className={cn(
-          "h-full px-4 py-4 hidden  md:flex md:flex-col bg-[#27272a] w-[300px] shrink-0",
+          "h-full px-4 py-4 hidden  md:flex md:flex-col bg-[#0a0a11] w-[300px] shrink-0",
           className
         )}
         animate={{
@@ -116,7 +116,7 @@ export const MobileSidebar = ({
     <>
       <div
         className={cn(
-          "h-10 px-4 py-4 flex flex-row md:hidden  items-center justify-between bg-neutral-100 dark:bg-neutral-800 "
+          "h-10 px-4 py-4 flex flex-row md:hidden  items-center justify-between bg-[#0a0a11] rounded-md"
         )}
         {...props}
       >
@@ -137,7 +137,7 @@ export const MobileSidebar = ({
                 ease: "easeInOut",
               }}
               className={cn(
-                "fixed h-full inset-0 bg-white dark:bg-neutral-900 p-10 z-[100] flex flex-col justify-between",
+                "fixed h-full inset-0 bg-[#0a0a11] p-10 z-[100] flex flex-col justify-between",
                 className
               )}
             >

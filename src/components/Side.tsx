@@ -45,6 +45,11 @@ export function Side({ newChatClick }: Props) {
     fetchQuestions();
   }, []);
 
+  const handleNewChatClick = (e: React.MouseEvent<HTMLElement>) => {
+    setOpen(false); 
+    newChatClick(e); 
+  };
+
   const links = [
     {
       label: "Start new chat",
@@ -52,7 +57,7 @@ export function Side({ newChatClick }: Props) {
       icon: (
         <LuMessageSquareDiff className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
-      onclick: newChatClick,
+      onclick: handleNewChatClick,
     },
     {
       label: "Chats",
@@ -72,7 +77,7 @@ export function Side({ newChatClick }: Props) {
     >
       <Sidebar open={open} setOpen={setOpen}>
         <SidebarBody className="justify-between gap-10">
-          <div className="flex flex-1 flex-col overflow-hidden custom-scrollbar">
+          <div className="flex flex-1 flex-col w-[100vw] overflow-hidden custom-scrollbar">
             {open ? <Logo /> : <LogoIcon />}
             <div className="mt-8 flex flex-col gap-2">
               {links.map((link, idx) => (

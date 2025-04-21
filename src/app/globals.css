@@ -67,6 +67,7 @@ body {
 @layer components {
   .custom-scrollbar2::-webkit-scrollbar {
     width: 4px;
+    height: 1px;
   }
 
   .custom-scrollbar2::-webkit-scrollbar-track {
@@ -81,8 +82,8 @@ body {
     background-color: #05b6d3;
     width: 5px;
     border-radius: 10px;
+    height: 1px;
     cursor:grab;
-   
 
   }
 
@@ -122,6 +123,8 @@ body {
     cursor: pointer;
   }
 }
+
+
 
 
 
