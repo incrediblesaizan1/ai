@@ -192,7 +192,7 @@ const Page = () => {
                 value={message}
                 placeholder="Ask anything"
                 onChange={(e) => setMessage(e.target.value)}
-                className=" font-serif textinp bg-transparent resize-none text-justify rounded-xl p-2 w-[50vw] md:w-[60vw] lg:w-[50vw] outline-none custom-scrollbar2 min-h-20 md:min-h-28 max-h-96 overflow-y-auto "
+                className=" font-serif textinp bg-transparent resize-none rounded-xl p-2 w-[50vw] md:w-[60vw] lg:w-[50vw] outline-none custom-scrollbar2 min-h-20 md:min-h-28 max-h-96 overflow-y-auto "
                 ref={(el) => {
                   if (el) {
                     el.style.height = "auto";
