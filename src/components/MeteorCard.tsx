@@ -1,10 +1,31 @@
 import React from "react";
 import { Meteors } from "./ui/meteors";
-import {GradientButton} from "./GradientButton"
 import { useRouter } from "next/navigation";
+import { Button } from "./ui/button";
 
 export function MeteorCard() {
   const router = useRouter()
+  const AceternityLogo = () => {
+    return (
+      <svg
+        width="66"
+        height="65"
+        viewBox="0 0 66 65"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-3 w-3 text-black dark:text-white"
+      >
+        <path
+          d="M8 8.05571C8 8.05571 54.9009 18.1782 57.8687 30.062C60.8365 41.9458 9.05432 57.4696 9.05432 57.4696"
+          stroke="currentColor"
+          strokeWidth="15"
+          strokeMiterlimit="3.86874"
+          strokeLinecap="round"
+        />
+      </svg>
+    );
+  };
+  
   return (
     <div className="flex items-center justify-center">
       <div className="relative w-[94vw] md:w-full max-w-xl max-h-xl">
@@ -35,8 +56,12 @@ export function MeteorCard() {
           Built for developers who move fast and build faster. From writing clean code to crafting content, solving problems, and streamlining your workflow — this AI assistant is built to help you do it all, effortlessly.
 </p>
 
+
     <button onClick={()=>router.push("register")} className="cursor-pointer">
-        <GradientButton />
+        <Button variant={"outline"}  className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2 cursor-pointer">
+      <AceternityLogo />
+      Start for free
+      </Button>
     </button>
 
           {/* Meaty part - Meteor effect */}
