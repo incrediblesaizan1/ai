@@ -213,7 +213,7 @@ const ShaderMaterial = ({ source, uniforms, maxFps = 60 }: ShaderMaterialProps) 
     <mesh ref={ref}>
       <planeGeometry args={[2, 2]} />
       <primitive object={material} attach="material" />
-    </mesh>
+    </mesh> 
   );
 };
 
