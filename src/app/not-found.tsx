@@ -4,6 +4,7 @@ import { Boxes } from "@/components/ui/background-boxes";
 import { cn } from "@/lib/utils";
 import { MovingBorderButton } from '@/components/MovingBorderButton';
 import { useRouter } from 'next/navigation';
+import { Button } from '@/components/ui/button';
 
 const NotFound = () => {
   const router = useRouter()
@@ -20,10 +21,14 @@ const NotFound = () => {
               </p>
               <div className='mt-12 gap-4 flex items-center justify-center'>
                 <div onClick={()=>router.push("/")}>
-                <MovingBorderButton  title='Return to Home' bgColor='bg-slate-950' />
+                <Button variant={"outline"}  className="dark:bg-slate-950 bg-white text-black dark:text-white flex items-center space-x-2 cursor-pointer">
+                Return to Home
+      </Button>
                 </div>
                     <div onClick={()=>router.push("/dashboard")} >
-                <MovingBorderButton title='View Dashboard' bgColor='bg-[#000000]' />
+                <Button variant={"outline"}  className="dark:bg-slate-950 bg-white text-black dark:text-white flex items-center space-x-2 cursor-pointer">
+                View Dashboard
+      </Button>
                     </div>
               </div>
             </div>
