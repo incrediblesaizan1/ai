@@ -26,7 +26,7 @@ interface Props {
 export function Side({ newChatClick }: Props) {
   const user = useUser().user;
   const [isOpen, setIsOpen] = useState(true);
-  const [recentQuestion, setResetQuestion] = useState<recentQuestion[]>([]);
+  const [recentQuestion, setRecentQuestion] = useState<recentQuestion[]>([]);
   const router = useRouter()
 
   interface recentQuestion {
@@ -38,7 +38,7 @@ export function Side({ newChatClick }: Props) {
 
   const fetchQuestions = async () => {
     const a = await axios.get("/api/questions");
-    setResetQuestion(a.data.questions);
+    setRecentQuestion(a.data.questions);
   };
 
   useEffect(() => {

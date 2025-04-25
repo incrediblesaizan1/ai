@@ -37,7 +37,7 @@ const Page = () => {
   const [inputDown, setInputDown] = useState(false);
   const [loading, setLoading] = useState(false);
   const [questions, setQuestions] = useState<questions[]>([]);
-  const [recentQuestion, setResetQuestion] = useState<recentQuestion[]>([]);
+  const [recentQuestion, setRecentQuestion] = useState<recentQuestion[]>([]);
   const [selectedQue, setSelectedQue] = useState<recentQuestion[]>([]);
 
   const messageBox = useRef<HTMLDivElement>(null);
@@ -67,7 +67,7 @@ const Page = () => {
 
   const fetchQuestions = async () => {
     const a = await axios.get("/api/questions");
-    setResetQuestion(a.data.questions);
+    setRecentQuestion(a.data.questions);
   };
 
   const scrollToBottom = () => {
@@ -107,7 +107,8 @@ const Page = () => {
   console.log(selectedQue);
 
   return (
-    <div className="relative flex h-screen w-full bg-black">
+    <>
+    {/* <div className="relative flex h-screen w-full bg-black"> */}
       {/* <div
         className={cn(
           "pointer-events-none absolute inset-0",
@@ -241,7 +242,9 @@ const Page = () => {
           </div>
         </div>
       )}
-    </div>
+    {/* </div> */}
+    </>
+
   );
 };
 
