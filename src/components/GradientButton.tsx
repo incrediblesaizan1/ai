@@ -1,22 +1,22 @@
 "use client";
 import React from "react";
 // import { Button } from "./ui/button";
-import { HoverBorderGradient } from "./ui/hover-border-gradient";
+// import { HoverBorderGradient } from "./ui/hover-border-gradient";
 
 export function GradientButton() {
   return (
     <div className="flex justify-center items-center text-center cursor-pointer">
-      <HoverBorderGradient
+      {/* <HoverBorderGradient
         containerClassName="rounded-full"
         as="button"
         className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2 cursor-pointer"
         >
-        <AceternityLogo />
         <span>Start for free</span>
-        </HoverBorderGradient>
-      {/* <Button variant={"outline"}  className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2 cursor-pointer">
+        </HoverBorderGradient> */}
+      <Button variant={"outline"}  className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2 cursor-pointer">
+      <AceternityLogo />
       Start for free
-      </Button> */}
+      </Button>
     </div>
   );
 }
