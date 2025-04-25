@@ -24,6 +24,7 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
     return NextResponse.json(
       {
         message: "Something went wrong while deleting the message",
+        error
       },
       { status: 500 }
     );

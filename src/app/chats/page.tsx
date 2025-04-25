@@ -1,5 +1,4 @@
 "use client";
-import { HoverCard } from "@/components/HoverCard";
 import { StepLoader } from "@/components/StepLoader";
 import { Spotlight } from "@/components/ui/spotlight-new";
 import axios from "axios";
