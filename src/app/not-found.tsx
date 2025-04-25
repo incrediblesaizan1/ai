@@ -2,7 +2,6 @@
 import React from 'react'
 import { Boxes } from "@/components/ui/background-boxes";
 import { cn } from "@/lib/utils";
-import { MovingBorderButton } from '@/components/MovingBorderButton';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 
