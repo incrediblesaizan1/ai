@@ -18,14 +18,14 @@ const NotFound = () => {
               <p className="text-center mt-8 text-base md:text-xl text-neutral-300 relative z-20">
               {`You can get back on track do your work with ease with SK'ask.`}
               </p>
-              <div className='mt-12 gap-4 flex items-center justify-center'>
-                <div onClick={()=>router.push("/")}>
-                <Button variant={"outline"}  className="dark:bg-slate-950 bg-white text-black dark:text-white flex items-center space-x-2 cursor-pointer">
+              <div className='mt-12 gap-4 flex items-center justify-center z-100'>
+                <div onClick={()=>router.push("/")} className='z-100'>
+                <Button variant={"outline"}  className="dark:bg-slate-900 z-100 bg-white text-black dark:text-white flex items-center space-x-2 cursor-pointer">
                 Return to Home
       </Button>
                 </div>
-                    <div onClick={()=>router.push("/dashboard")} >
-                <Button variant={"outline"}  className="dark:bg-slate-950 bg-white text-black dark:text-white flex items-center space-x-2 cursor-pointer">
+                    <div onClick={()=>router.push("/dashboard")} className='z-100' >
+                <Button variant={"outline"}  className="dark:bg-slate-900 z-100 bg-white text-black dark:text-white flex items-center space-x-2 cursor-pointer">
                 View Dashboard
       </Button>
                     </div>

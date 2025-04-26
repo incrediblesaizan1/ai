@@ -21,8 +21,11 @@ const Page = () => {
   const [recentQuestion, setRecentQuestion] = useState<recentQuestion[]>([]);
 
   const fetchQuestions = async () => {
+    setLoading(true);
     const a = await axios.get("/api/questions");
     setRecentQuestion(a.data.questions);
+    setLoading(false);
+
   };
 
   const formatDate = (dateString: string) => {
@@ -40,16 +43,13 @@ const Page = () => {
 
   const deleteMessage = async (id: string) => {
     setLoading(true);
-    const a = await axios.get(`/api/post/${id}`);
+   await axios.get(`/api/post/${id}`);
     fetchQuestions();
-    console.log(a)
     setLoading(false);
   };
   
   useEffect(() => {
-    setLoading(true);
     fetchQuestions();
-    setLoading(false);
   }, []);
 
   return (
@@ -73,7 +73,7 @@ const Page = () => {
                           <CardSpotlight className="w-full ">
                             <div className="relative z-20 flex items-center justify-between">
                               <h1
-                                onClick={() => router.push(`/chats/${e._id}`)}
+                                onClick={() => router.push(`/chat/${e._id}`)}
                                 className="capitalize w-full text-xs md:text-base lg:text-lg flex items-center justify-between"
                               >
                                 {e.question.trim().slice(0, 32)}...{" "}
@@ -89,7 +89,7 @@ const Page = () => {
                           <CardSpotlight className="w-full ">
                             <div className="relative z-20 flex items-center justify-between">
                               <h1
-                                onClick={() => router.push(`/chats/${e._id}`)}
+                                onClick={() => router.push(`/chat/${e._id}`)}
                                 className="capitalize w-full text-xs md:text-base lg:text-lg flex items-center justify-between"
                               >
                                 {e.question.trim()}{" "}

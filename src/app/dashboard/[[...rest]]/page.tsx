@@ -43,6 +43,7 @@ const Page = () => {
   const messageBox = useRef<HTMLDivElement>(null);
 
   const greetfunc = () => {
+    setLoading(true);
     const now = new Date();
     const hour = now.getHours();
 
@@ -57,6 +58,7 @@ const Page = () => {
     } else {
       setGreet("Good Night");
     }
+    setLoading(false);
   };
 
   const newChatClick = () => {
@@ -66,8 +68,10 @@ const Page = () => {
   };
 
   const fetchQuestions = async () => {
+    setLoading(true);
     const a = await axios.get("/api/questions");
     setRecentQuestion(a.data.questions);
+    setLoading(false);
   };
 
   const scrollToBottom = () => {
@@ -98,13 +102,14 @@ const Page = () => {
   };
 
   useEffect(() => {
-    setLoading(true);
+  
     greetfunc();
     fetchQuestions();
-    setLoading(false);
   }, []);
 
   console.log(selectedQue);
+
+  if(loading) return <StepLoader loading={loading} />
 
   return (
     <>
@@ -120,9 +125,6 @@ const Page = () => {
 
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] bg-black" /> */}
 
-      {loading ? (
-        <StepLoader loading={loading} />
-      ) : (
         <div className="relative z-10 w-[100vw] flex overflow-hidden h-screen">
           <Spotlight /> 
           <div className="absolute z-100">
@@ -241,7 +243,6 @@ const Page = () => {
             </div>
           </div>
         </div>
-      )}
     {/* </div> */}
     </>
 
