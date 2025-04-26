@@ -64,7 +64,7 @@ const Page = () => {
 
   useEffect(() => {
     fetchQuestion();
-  }, []);
+  }, [fetchQuestion]);
 
   if (loading) return <StepLoader loading={loading} />;
 
