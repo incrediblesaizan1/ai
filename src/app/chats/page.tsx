@@ -9,11 +9,11 @@ import { CardSpotlight } from "@/components/ui/card-spotlight";
 import { IoChatbubblesOutline } from "react-icons/io5";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { CiSearch } from "react-icons/ci";
-
+import { IconX } from "@tabler/icons-react";
 
 const Page = () => {
   const router = useRouter();
-  const [search, setSearch] = useState("")
+  const [search, setSearch] = useState("");
 
   interface recentQuestion {
     _id: string;
@@ -23,14 +23,14 @@ const Page = () => {
   }
 
   const [loading, setLoading] = useState(false);
-  const [filteredResults, setFilteredResults] = useState<recentQuestion[]>([])
-  const [allQuestions, setAllQuestions] = useState<recentQuestion[]>([])
+  const [filteredResults, setFilteredResults] = useState<recentQuestion[]>([]);
+  const [allQuestions, setAllQuestions] = useState<recentQuestion[]>([]);
 
   const fetchQuestions = async () => {
     setLoading(true);
     const a = await axios.get("/api/questions");
-    setFilteredResults(a.data.questions)
-    setAllQuestions(a.data.questions)
+    setFilteredResults(a.data.questions);
+    setAllQuestions(a.data.questions);
     setLoading(false);
   };
 
@@ -39,16 +39,13 @@ const Page = () => {
       setFilteredResults(filteredResults);
       return;
     }
-    
+
     const filtered = allQuestions.filter((e) => {
       return e.question.toLowerCase().includes(search.toLowerCase());
     });
-    
 
     setFilteredResults(filtered);
-
-
-  }
+  };
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
@@ -76,7 +73,6 @@ const Page = () => {
     fetchQuestions();
   }, []);
 
-
   return (
     <>
       {loading ? (
@@ -86,35 +82,39 @@ const Page = () => {
           <Spotlight />
           {/* <div className="flex w-[98vw] md:w-full items-center pt-10 flex-col overflow-y-auto custom-scrollbar2 overflow-x-hidden"> */}
           <div className="h-screen w-full overflow-auto custom-scrollbar text-white">
-            <div className="flex items-center p-3 w-full justify-between px-4 sticky top-0 bg-[#242429]">
-              <div className="flex gap-16 items-center">
-                <div className="flex items-center gap-2 text-2xl">
-                  <IoChatbubblesOutline className="text-3xl" />
+            <div className="flex items-center p-3 w-full justify-between px-4 sticky top-0 bg-[#242429] z-100">
+              <div className="flex items-center">
+                <div className="flex items-center gap-1 md:gap-2 text-xs sm:text-xl md:text-2xl">
+                  <IoChatbubblesOutline className="text-xl md:text-3xl" />
                   Your Chat history
                 </div>
               </div>
-
+              <div className="bg-[#242429] px-2 text-white text-sm sm:text-lg md:text-xl w-1/4 flex rounded-lg items-center mx-auto h-12">
+                <CiSearch className="text-xl" />
+                <input
+                  type="text"
+                  value={search}
+                  onChange={(e) => (setSearch(e.target.value), searchResults())}
+                  className=" w-full bg-transparent outline-none px-2 "
+                  placeholder="Search your chats..."
+                />
+                <IconX
+                  className={`${search.length == 0 && "hidden"} cursor-pointer`}
+                  onClick={() => (setSearch(""), fetchQuestions())}
+                />
+              </div>
               <div>
                 <button
                   onClick={() => router.push("/dashboard")}
-                  className="flex items-center px-3 py-1 text-lg cursor-pointer text-black gap-1 bg-[#52ced6] rounded-lg"
+                  className="flex items-center px-3 py-1 text-xs sm:text-sm md:text-lg cursor-pointer text-black gap-1 bg-[#52ced6] rounded-lg"
                 >
                   {" "}
-                  <IoIosAddCircleOutline className="text-2xl" /> Start New Chat
+                  <IoIosAddCircleOutline className="text-base sm:text-lg md:text-xl" /> Start New Chat
                 </button>
               </div>
             </div>
+
             <div className="text-center py-6">
-            <div className="bg-[#242429] px-2 text-white w-2/4 flex rounded-lg items-center mx-auto h-12">
-              <CiSearch className="text-2xl" />
-              <input
-                type="text"
-                value={search}
-                onChange={(e) => (setSearch(e.target.value),searchResults())}
-                className=" w-full bg-transparent outline-none px-2 "
-                placeholder="Search your chats..."
-              />
-            </div>
               <div>
                 {filteredResults
                   ? [...filteredResults].reverse().map((e) => (
