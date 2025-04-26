@@ -109,7 +109,7 @@ export function Side({ newChatClick }: Props) {
                 {[...recentQuestion]
                   .reverse()
                   .map((que) => (
-                    <div key={que._id}>
+                    <div key={que._id} onClick={()=>router.push(`/chat/${que._id}`)}>
                       {que.question.length > 14 ? (
                         <div className="rounded-md py-2 px-4 hover:text-zinc-950 cursor-pointer font-mono text-sm shadow-sm hover:bg-[#52ced6] transition-colors duration-200">
                           {que.question.trim().slice(0, 17)}...
