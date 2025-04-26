@@ -20,12 +20,12 @@ const NotFound = () => {
               </p>
               <div className='mt-12 gap-4 flex items-center justify-center z-100'>
                 <div onClick={()=>router.push("/")} className='z-100'>
-                <Button variant={"outline"}  className="dark:bg-slate-900 z-100 bg-white text-black dark:text-white flex items-center space-x-2 cursor-pointer">
+                <Button variant={"outline"}  className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2 cursor-pointer py-5 rounded-xl">
                 Return to Home
       </Button>
                 </div>
                     <div onClick={()=>router.push("/dashboard")} className='z-100' >
-                <Button variant={"outline"}  className="dark:bg-slate-900 z-100 bg-white text-black dark:text-white flex items-center space-x-2 cursor-pointer">
+                <Button variant={"outline"}  className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2 cursor-pointer py-5 rounded-xl">
                 View Dashboard
       </Button>
                     </div>

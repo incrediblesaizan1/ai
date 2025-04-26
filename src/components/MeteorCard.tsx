@@ -2,7 +2,6 @@ import React from "react";
 import { Meteors } from "./ui/meteors";
 import { useRouter } from "next/navigation";
 import { Button } from "./ui/button";
-import { GradientButton } from "./GradientButton";
 
 export function MeteorCard() {
   const router = useRouter()
@@ -58,15 +57,15 @@ export function MeteorCard() {
 </p>
 
 
-    {/* <button onClick={()=>router.push("register")} className="cursor-pointer">
-        <Button variant={"outline"}  className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2 cursor-pointer">
+    <button onClick={()=>router.push("register")} className="cursor-pointer">
+        <Button variant={"outline"}  className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2 cursor-pointer py-5 rounded-xl">
       <AceternityLogo />
       Start for free
       </Button>
-    </button> */}
-     <button onClick={()=>router.push("register")} className="cursor-pointer">
+    </button>
+     {/* <button onClick={()=>router.push("register")} className="cursor-pointer">
     <GradientButton  />
-     </button>
+     </button> */}
 
 
           {/* Meaty part - Meteor effect */}
