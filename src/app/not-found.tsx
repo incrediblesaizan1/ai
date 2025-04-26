@@ -3,7 +3,7 @@ import React from 'react'
 import { Boxes } from "@/components/ui/background-boxes";
 import { cn } from "@/lib/utils";
 import { useRouter } from 'next/navigation';
-import { Button } from '@/components/ui/button';
+import { ButtonColorful } from '@/components/ui/button-colorful';
 
 const NotFound = () => {
   const router = useRouter()
@@ -20,14 +20,17 @@ const NotFound = () => {
               </p>
               <div className='mt-12 gap-4 flex items-center justify-center z-100'>
                 <div onClick={()=>router.push("/")} className='z-100'>
-                <Button variant={"outline"}  className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2 cursor-pointer py-5 rounded-xl">
+                {/* <Button variant={"outline"}  className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2 cursor-pointer py-5 rounded-xl">
                 Return to Home
-      </Button>
+      </Button> */}
+      <ButtonColorful label='Return to Home' />
                 </div>
                     <div onClick={()=>router.push("/dashboard")} className='z-100' >
-                <Button variant={"outline"}  className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2 cursor-pointer py-5 rounded-xl">
+                {/* <Button variant={"outline"}  className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2 cursor-pointer py-5 rounded-xl">
                 View Dashboard
-      </Button>
+      </Button> */}
+            <ButtonColorful label='View Dashboard' />
+
                     </div>
               </div>
             </div>
