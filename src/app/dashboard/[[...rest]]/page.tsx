@@ -62,6 +62,7 @@ const Page = () => {
   };
 
   const newChatClick = () => {
+    fetchQuestions()
     setQuestions([]);
     setMessage("");
     setInputDown(false);
