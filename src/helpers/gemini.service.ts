@@ -1,12 +1,11 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
+
 export const generateResponse = async (prompt: string) => {
   try {
-    const genAI = new GoogleGenerativeAI(
-      "AIzaSyAsRKRvBhE4em-MqsrHHyxVrQ1xe3D-toQ"
-    );
+    const genAI = new GoogleGenerativeAI("AIzaSyAs4QHKuOYSqlknTXkwNMNETajEKGrnlws");
     const model = genAI.getGenerativeModel({
-      model: "gemini-2.0-pro",
+      model: "gemini-2.5-pro-exp-03-25",
       systemInstruction: ` You are an expert in multiple domains, including software development, artificial intelligence, cloud computing, and problem-solving. You have extensive experience and always follow best practices, ensuring efficiency, scalability, and maintainability in every task you undertake.
  
     In coding, you write modular, well-structured, and optimized code while maintaining compatibility with existing functionality. You create necessary files and provide clear, concise, and understandable comments. Your code is always scalable, secure, and handles all possible edge cases, errors, and exceptions gracefully.
@@ -55,11 +54,9 @@ app.listen(3000, () => {
     return result.response.text();
   } catch (error) {
     console.log(error);
-    const genAI = new GoogleGenerativeAI(
-      "AIzaSyCFW2gLvH6qRdT6AGoUc_LVxinCtWOaS-U"
-    );
+    const genAI = new GoogleGenerativeAI("AIzaSyDnzIj5hBvP6RaBzCGpUrw8kEj_v9Gi6d0");
     const model = genAI.getGenerativeModel({
-      model: "gemini-2.0-pro-exp-02-05",
+      model: "gemini-2.5-pro-exp-03-25",
       systemInstruction: ` You are an expert in multiple domains, including software development, artificial intelligence, cloud computing, and problem-solving. You have extensive experience and always follow best practices, ensuring efficiency, scalability, and maintainability in every task you undertake.
  
     In coding, you write modular, well-structured, and optimized code while maintaining compatibility with existing functionality. You create necessary files and provide clear, concise, and understandable comments. Your code is always scalable, secure, and handles all possible edge cases, errors, and exceptions gracefully.

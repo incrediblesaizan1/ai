@@ -100,6 +100,8 @@ const Page = () => {
       answer: response,
     });
      scrollToBottom();
+  console.log(selectedQue);
+
   };
 
   useEffect(() => {
@@ -108,7 +110,6 @@ const Page = () => {
     fetchQuestions();
   }, []);
 
-  console.log(selectedQue);
 
   if(loading) return <StepLoader loading={loading} />
 

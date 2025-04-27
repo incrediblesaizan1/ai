@@ -30,7 +30,6 @@ const Page = () => {
       ...prev,
       { text: data.data.find.response, type: "incoming" },
     ]);
-    console.log(data.data.find.question);
     setLoading(false);
   };
 
