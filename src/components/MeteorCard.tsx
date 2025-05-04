@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import { Meteors } from "./ui/meteors";
 import { useRouter } from "next/navigation";
