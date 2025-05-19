@@ -68,7 +68,7 @@ Always avoid redundant comments. Explain everything in structured markdown secti
 const tryGenerateContent = async (apiKey: string, prompt: string) => {
   const genAI = new GoogleGenerativeAI(apiKey);
   const model = genAI.getGenerativeModel({
-    model: "gemini-2.5-pro-exp-03-25",
+    model: "gemini-2.5-pro-preview-05-06",
     systemInstruction: getSystemInstruction(),
   });
   const result = await model.generateContent(prompt);
@@ -77,9 +77,9 @@ const tryGenerateContent = async (apiKey: string, prompt: string) => {
 
 export const generateResponse = async (prompt: string) => {
   try {
-    return await tryGenerateContent("AIzaSyAs4QHKuOYSqlknTXkwNMNETajEKGrnlws", prompt);
+    return await tryGenerateContent("AIzaSyAiJjSklU-yIjdEyRIwFhNUX-EbGO2XZNE", prompt);
   } catch (error) {
     console.error("Primary key failed, retrying with fallback key:", error);
-    return await tryGenerateContent("AIzaSyDnzIj5hBvP6RaBzCGpUrw8kEj_v9Gi6d0", prompt);
+    return await tryGenerateContent("AIzaSyB3gtv0VhOhhqgz7_hj7dE-hmTPzjqvPqo", prompt);
   }
 };
