@@ -68,7 +68,11 @@ Always avoid redundant comments. Explain everything in structured markdown secti
 const tryGenerateContent = async (apiKey: string, prompt: string) => {
   const genAI = new GoogleGenerativeAI(apiKey);
   const model = genAI.getGenerativeModel({
+<<<<<<< HEAD
     model: "gemini-2.5-flash",
+=======
+    model: "gemini-2.5-pro",
+>>>>>>> 6bc2a3bc10b0c8280e38517c63d2291011a70249
     systemInstruction: getSystemInstruction(),
   });
   const result = await model.generateContent(prompt);
