@@ -1,6 +1,6 @@
 "use client";
 
-import { useMotionValue, motion, useMotionTemplate } from "framer-motion";
+import { useMotionValue, motion, useMotionTemplate } from "motion/react";
 import React, { MouseEvent as ReactMouseEvent, useState } from "react";
 import { CanvasRevealEffect } from "@/components/ui/canvas-reveal-effect";
 import { cn } from "@/lib/utils";
@@ -36,7 +36,7 @@ export const CardSpotlight = ({
     <div
       className={cn(
         "group/spotlight px-8 py-4 rounded-md relative border border-neutral-800 bg-black dark:border-neutral-800",
-        className,
+        className
       )}
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}

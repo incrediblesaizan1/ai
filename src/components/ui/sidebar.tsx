@@ -1,7 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
 import React, { useState, createContext, useContext } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import { IconMenu2, IconX } from "@tabler/icons-react";
 import Link from "next/link";
 
@@ -9,7 +9,7 @@ interface Links {
   label: string;
   href: string;
   icon: React.JSX.Element | React.ReactNode;
-  onclick?: (event: React.MouseEvent<HTMLElement>) => void;
+  onclick?: (event: React.MouseEvent<HTMLElement>) => void; 
 }
 
 interface SidebarContextProps {
@@ -19,7 +19,7 @@ interface SidebarContextProps {
 }
 
 const SidebarContext = createContext<SidebarContextProps | undefined>(
-  undefined,
+  undefined
 );
 
 export const useSidebar = () => {
@@ -91,7 +91,7 @@ export const DesktopSidebar = ({
       <motion.div
         className={cn(
           "h-full px-4 py-4 hidden  md:flex md:flex-col bg-[#0a0a11] w-[300px] shrink-0",
-          className,
+          className
         )}
         animate={{
           width: animate ? (open ? "300px" : "60px") : "300px",
@@ -116,7 +116,7 @@ export const MobileSidebar = ({
     <>
       <div
         className={cn(
-          "h-10 px-4 py-4 flex flex-row md:hidden  items-center justify-between bg-[#0a0a11] rounded-md",
+          "h-10 px-4 py-4 flex flex-row md:hidden  items-center justify-between bg-[#0a0a11] rounded-md"
         )}
         {...props}
       >
@@ -138,7 +138,7 @@ export const MobileSidebar = ({
               }}
               className={cn(
                 "fixed h-full inset-0 bg-[#0a0a11] p-10 z-[100] flex flex-col justify-between",
-                className,
+                className
               )}
             >
               <div
@@ -171,7 +171,7 @@ export const SidebarLink = ({
       href={link.href}
       className={cn(
         "flex items-center justify-start gap-2 group/sidebar py-2",
-        className,
+        className
       )}
       onClick={link.onclick} // ✅ this will work only if `onclick` exists
       {...props}
@@ -189,3 +189,4 @@ export const SidebarLink = ({
     </Link>
   );
 };
+

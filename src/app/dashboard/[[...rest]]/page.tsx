@@ -91,7 +91,7 @@ const Page = () => {
 
     const response = await generateResponse(message);
 
-    setQuestions((prev) => [...prev, { text: response || "", type: "incoming" }]);
+    setQuestions((prev) => [...prev, { text: response, type: "incoming" }]);
 
     setLoading(false);
     scrollToBottom();

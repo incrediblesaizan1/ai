@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 
 import { useState } from "react";
 
@@ -20,7 +20,7 @@ export const HoverEffect = ({
   className,
   setSelectedQue,
   setQuestions,
-  setInputDown,
+  setInputDown
 }: {
   items: {
     question: string;
@@ -37,19 +37,16 @@ export const HoverEffect = ({
 
   const handleSelect = (item: Question) => {
     setSelectedQue([item]);
-    setInputDown(true);
-    setQuestions([{ text: item.question, type: "outgoing" }]);
-    setQuestions((prev) => [
-      ...prev,
-      { text: item.response, type: "incoming" },
-    ]);
+    setInputDown(true)
+    setQuestions([{text: item.question, type: "outgoing"}])
+    setQuestions((prev)=>[...prev, {text: item.response, type: "incoming"}])
   };
 
   return (
     <div
       className={cn(
         "grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3  pt-8",
-        className,
+        className
       )}
     >
       {items.map((item, idx) => (
@@ -109,7 +106,7 @@ export const Card = ({
     <div
       className={cn(
         "rounded-2xl h-full w-full p-4 overflow-hidden bg-black border border-transparent dark:border-white/[0.2] group-hover:border-slate-700 relative z-20",
-        className,
+        className
       )}
     >
       <div className="">
@@ -142,7 +139,7 @@ export const CardDescription = ({
     <p
       className={cn(
         "mt-8 text-zinc-400 tracking-wide leading-relaxed text-sm",
-        className,
+        className
       )}
     >
       {children}
