@@ -50,7 +50,7 @@ const Page = () => {
 
     const response = await generateResponse(message);
 
-    setQuestions((prev) => [...prev, { text: response, type: "incoming" }]);
+    setQuestions((prev) => [...prev, { text: response || "", type: "incoming" }]);
 
     setLoading(false);
     scrollToBottom();
@@ -63,6 +63,7 @@ const Page = () => {
 
   useEffect(() => {
     fetchQuestion();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (loading) return <StepLoader loading={loading} />;
