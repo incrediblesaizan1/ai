@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Sidebar, SidebarBody, SidebarLink } from "./ui/sidebar";
 import { LuMessageSquareDiff } from "react-icons/lu";
 import { IconBrandTabler } from "@tabler/icons-react";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { IoIosFlower } from "react-icons/io";
@@ -27,7 +27,7 @@ export function Side({ newChatClick }: Props) {
   const user = useUser().user;
   const [isOpen, setIsOpen] = useState(true);
   const [recentQuestion, setRecentQuestion] = useState<recentQuestion[]>([]);
-  const router = useRouter()
+  const router = useRouter();
 
   interface recentQuestion {
     _id: string;
@@ -46,8 +46,8 @@ export function Side({ newChatClick }: Props) {
   }, []);
 
   const handleNewChatClick = (e: React.MouseEvent<HTMLElement>) => {
-    setOpen(false); 
-    newChatClick(e); 
+    setOpen(false);
+    newChatClick(e);
   };
 
   const links = [
@@ -72,7 +72,7 @@ export function Side({ newChatClick }: Props) {
     <div
       className={cn(
         "mr-auto flex z-50 lg:w-[18vw] xl:w-[15vw] flex-1 flex-col overflow-hidden  md:flex-row bg-transparent",
-        "h-screen"
+        "h-screen",
       )}
     >
       <Sidebar open={open} setOpen={setOpen}>
@@ -98,33 +98,39 @@ export function Side({ newChatClick }: Props) {
                 <h4 className="text-sm font-semibold">Your History</h4>
                 <CollapsibleTrigger asChild>
                   <Button variant="ghost" size="sm" className="cursor-pointer">
-                    {isOpen ?<FaAngleDown className="h-4 w-4" />: <FaAngleRight className="h-4 w-4" />}
+                    {isOpen ? (
+                      <FaAngleDown className="h-4 w-4" />
+                    ) : (
+                      <FaAngleRight className="h-4 w-4" />
+                    )}
                     <span className="sr-only">Toggle</span>
                   </Button>
                 </CollapsibleTrigger>
               </div>
 
               <CollapsibleContent className="space-y-2">
-        
-                {[...recentQuestion]
-                  .reverse()
-                  .map((que) => (
-                    <div key={que._id} onClick={()=>router.push(`/chat/${que._id}`)}>
-                      {que.question.length > 14 ? (
-                        <div className="rounded-md py-2 px-4 hover:text-zinc-950 cursor-pointer font-mono text-sm shadow-sm hover:bg-[#52ced6] transition-colors duration-200">
-                          {que.question.trim().slice(0, 17)}...
-                        </div>
-                      ) : (
-                        <div className="rounded-md py-2 px-4 cursor-pointer font-mono text-sm shadow-sm hover:bg-[#52ced6] transition-colors duration-200 hover:text-zinc-950">
-                          {que.question}
-                        </div>
-                      )}
-                      
-                    </div>
-                  ))}
-                         <div onClick={()=>router.push("/chats")} className="rounded-md py-2 px-4 flex items-center gap-2 cursor-pointer font-mono text-sm shadow-sm hover:bg-[#52ced6] hover:text-zinc-900 transition-colors duration-200">
-                       <FiMessageCircle className="text-lg" />   All Chats
-                        </div>
+                {[...recentQuestion].reverse().map((que) => (
+                  <div
+                    key={que._id}
+                    onClick={() => router.push(`/chat/${que._id}`)}
+                  >
+                    {que.question.length > 14 ? (
+                      <div className="rounded-md py-2 px-4 hover:text-zinc-950 cursor-pointer font-mono text-sm shadow-sm hover:bg-[#52ced6] transition-colors duration-200">
+                        {que.question.trim().slice(0, 17)}...
+                      </div>
+                    ) : (
+                      <div className="rounded-md py-2 px-4 cursor-pointer font-mono text-sm shadow-sm hover:bg-[#52ced6] transition-colors duration-200 hover:text-zinc-950">
+                        {que.question}
+                      </div>
+                    )}
+                  </div>
+                ))}
+                <div
+                  onClick={() => router.push("/chats")}
+                  className="rounded-md py-2 px-4 flex items-center gap-2 cursor-pointer font-mono text-sm shadow-sm hover:bg-[#52ced6] hover:text-zinc-900 transition-colors duration-200"
+                >
+                  <FiMessageCircle className="text-lg" /> All Chats
+                </div>
               </CollapsibleContent>
             </Collapsible>
           </div>
