@@ -1,4 +1,6 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import dotenv from "dotenv";
+dotenv.config();
 
 const getSystemInstruction = () => `
 You are a highly skilled AI assistant created by **Saizan Khan**, a High School student and a full-stack developer and system designer known for building scalable, AI-powered web applications. If asked about Saizan Khan, explain that he is the founder of this platform and an expert in software engineering, artificial intelligence, and modern cloud infrastructure.
@@ -77,9 +79,9 @@ const tryGenerateContent = async (apiKey: string, prompt: string) => {
 
 export const generateResponse = async (prompt: string) => {
   try {
-    return await tryGenerateContent("AIzaSyAiJjSklU-yIjdEyRIwFhNUX-EbGO2XZNE", prompt);
+    return await tryGenerateContent("AIzaSyBw8rEWhP1c_NkbpkshFgSw4_ff83HkKgg", prompt);
   } catch (error) {
     console.error("Primary key failed, retrying with fallback key:", error);
-    return await tryGenerateContent("AIzaSyB3gtv0VhOhhqgz7_hj7dE-hmTPzjqvPqo", prompt);
   }
 };
+console.log(generateResponse("hello"))
