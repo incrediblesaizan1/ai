@@ -77,10 +77,7 @@ const Page = () => {
 
         <div className="flex w-[98vw] md:w-full items-center pt-10 flex-col overflow-y-auto custom-scrollbar2 overflow-x-hidden">
           <div
-            className={`
-                                  "  h-[65vh] mx-auto mb-14",
-                                  !inputDown && "hidden"
-                                `}
+            className="h-[65vh] mx-auto mb-14"
           >
             <div
               className=" p-2 pb-40 overflow-y-auto custom-scrollbar3 h-[93vh] w-[99vw] md:w-full"
@@ -107,7 +104,7 @@ const Page = () => {
           </div>
 
           <div
-            className={` mt-10  z-50 bg-[#0a0a11] "fixed -bottom-3"  rounded-2xl  pr-12 p-1 relative`}
+            className="mt-10 z-50 bg-[#0a0a11] fixed -bottom-3 rounded-2xl pr-12 p-1 relative"
           >
             {message.trim() !== "" && (
               <button onClick={() => (send(), setMessage(""))}>

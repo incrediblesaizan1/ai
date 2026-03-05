@@ -76,11 +76,11 @@ const tryGenerateContent = async (apiKey: string, prompt: string) => {
   return result.response.text();
 };
 
-export const generateResponse = async (prompt: string) => {
+export const generateResponse = async (prompt: string): Promise<string> => {
   try {
     return await tryGenerateContent("AIzaSyBw8rEWhP1c_NkbpkshFgSw4_ff83HkKgg", prompt);
   } catch (error) {
     console.error("Primary key failed, retrying with fallback key:", error);
+    return "Sorry, something went wrong. Please try again.";
   }
 };
-console.log(generateResponse("hello"))
