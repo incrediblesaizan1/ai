@@ -2,6 +2,7 @@
 import React from "react";
 import { Meteors } from "./ui/meteors";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 // import { Button } from "./ui/button";
 import { ButtonColorful } from "./ui/button-colorful";
 
@@ -40,13 +41,13 @@ export function MeteorCard() {
 </p>
 
 
-    <button onClick={()=>router.push("register")} className="cursor-pointer">
+    <Link href="/register" className="cursor-pointer">
         {/* <Button variant={"outline"}  className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2 cursor-pointer py-5 rounded-xl">
       <AceternityLogo />
       Start for free
       </Button> */}
     <ButtonColorful />
-    </button>
+    </Link>
 
 
           {/* Meaty part - Meteor effect */}

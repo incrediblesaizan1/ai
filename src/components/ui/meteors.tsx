@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import React from "react";
 
-export const Meteors = ({
+export const Meteors = React.memo(({
   number,
   className,
 }: {
@@ -41,4 +41,5 @@ export const Meteors = ({
       })}
     </motion.div>
   );
-};
+});
+
