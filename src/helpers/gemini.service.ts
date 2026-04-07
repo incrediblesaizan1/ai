@@ -1,8 +1,9 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const API_KEYS = [
-  "AIzaSyARUqzS1YLL75Ojl4PXd3nJwp4TB1kh9bY",
-  "AIzaSyALNgwI3pc0obgj8aN6BxVlcpZ-0kF00Vw",
+  "AIzaSyDPYxeoO4DN9QKHD9cq9Rnu7eyxd72F46c",
+  "AIzaSyCEzCM9G2-FMIm7YdsfofTQcJ99aT7CSd8",
+  "AIzaSyDgCpQreWAT3lp0aIOMg4PY-2p5VxEguYI"
 ];
 
 const getSystemInstruction = () => `
@@ -73,7 +74,7 @@ Always avoid redundant comments. Explain everything in structured markdown secti
 const tryGenerateContent = async (apiKey: string, prompt: string): Promise<string> => {
   const genAI = new GoogleGenerativeAI(apiKey);
   const model = genAI.getGenerativeModel({
-    model: "gemini-2.5-flash",
+    model: "gemini-1.5-flash",
     systemInstruction: getSystemInstruction(),
   });
   const result = await model.generateContent(prompt);
