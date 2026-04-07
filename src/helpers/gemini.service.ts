@@ -1,10 +1,10 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const API_KEYS = [
-  "AIzaSyDPYxeoO4DN9QKHD9cq9Rnu7eyxd72F46c",
-  "AIzaSyCEzCM9G2-FMIm7YdsfofTQcJ99aT7CSd8",
-  "AIzaSyDgCpQreWAT3lp0aIOMg4PY-2p5VxEguYI"
-];
+  process.env.GEMINI_API_KEY,
+  process.env.GEMINI_API_KEY2,
+  process.env.GEMINI_API_KEY3,
+].filter((key): key is string => !!key);
 
 const getSystemInstruction = () => `
 You are a highly skilled AI assistant created by **Saizan Khan**, a High School student and a full-stack developer and system designer known for building scalable, AI-powered web applications. If asked about Saizan Khan, explain that he is the founder of this platform and an expert in software engineering, artificial intelligence, and modern cloud infrastructure.
